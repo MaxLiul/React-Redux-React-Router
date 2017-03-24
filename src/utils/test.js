@@ -4,8 +4,12 @@ var object1 = {
   key3:[[],2,7, {
     key4:'smell'
   }],
-  key5:['height',{},777],
-  key6:{}
+  key5:['height',{
+    key7:[null, [2,3,4]]
+    }, 777],
+  key6:function() {
+      return 12;
+    },
 };
 object1.key1 = 'green';
 object1.weight = 0;
