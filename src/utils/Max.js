@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 var object1 =  require('./test');
 var cloneObject ={};
 
@@ -20,7 +20,7 @@ var cloneDeep = function(obj) {
  if (obj instanceof Array) {
    copy = [];
    for (var i = 0, len = obj.length; i < len; i++) {
-     copy[i] == cloneDeep(obj[i]);
+     copy[i] = cloneDeep(obj[i]);
    }
    return copy;
  }
@@ -30,7 +30,7 @@ var cloneDeep = function(obj) {
    copy = {};
    for (var attr in obj) {
      if (obj.hasOwnProperty(attr)) {
-       copy[attr] == cloneDeep(obj[attr]);
+       copy[attr] = cloneDeep(obj[attr]);
      }
    }
    return copy;
@@ -54,4 +54,4 @@ cloneObject = cloneDeep(object1);
 
 
  // console.log( cloneObject.key3[2] );
- console.log( cloneObject ) // .key5[1].key7 = [1,2,3] );
+ console.log( object1.key5[1].key7[0] ) // .key5[1].key7 = [1,2,3] );
