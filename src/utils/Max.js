@@ -1,20 +1,14 @@
-// 'use strict'
-var object1 =  require('./test');
-var cloneObject ={};
+'use strict'
+const object1 = require('./test');
+const cloneObject = {};
 
-var cloneDeep = function(obj) {
+const cloneDeep = function(obj) {
  // Handle string, int, boolean, null or undefined
- if (null == obj || "object" != typeof obj) {
+if (null === obj || "object" !== typeof obj) {
    return obj;
  }
 
- var copy;
- /* // Handle Date
- if (obj instanceof Date) {
-   copy = new Date();
-   copy.setTime(obj.getTime());
-   return copy;
- } */
+ const copy
 
  // Handle Array
  if (obj instanceof Array) {
@@ -29,29 +23,17 @@ var cloneDeep = function(obj) {
  if (obj instanceof Object) {
    copy = {};
    for (var attr in obj) {
-     if (obj.hasOwnProperty(attr)) {
+     if (obj.hasOwnProperty(attr)) { // здесь мы исключаем свойства обьекта, которые он наследовал от прототипа, так как эти свойства при клонировании об\ект и так приобретет
+
        copy[attr] = cloneDeep(obj[attr]);
      }
    }
    return copy;
  }
-
- /* console.error("Unable to copy object! Its type isn't supported.", obj);
-}
-
- function clone(obj) {
-   var target = {};
-   for (var i in obj) {
-     if (obj.hasOwnProperty(i)) {
-       target[i] = obj[i];
-     }
-   }
-   return target;
- } */
    }
 cloneObject = cloneDeep(object1);
- object1.key5[1].key7[0] = '[1,2,3]'
+ object1.key5[1].key7[1] = '[1,2,3]'
 
 
  // console.log( cloneObject.key3[2] );
- console.log( object1.key5[1].key7[0] ) // .key5[1].key7 = [1,2,3] );
+ console.log( typeof cloneObject.key5[1].key7[1] );
