@@ -1,14 +1,11 @@
-const object1 = require('./test');
-const object2 = {};
-const key
-const clone = {}
-for (key in object1) {
-clone[key] = object1[key]
 
-   // console.log(object1[keys])
-  // console.log(object1.keys) Why does it create 'undefined'??
+const clone = require('./clone');
+const objMassiveInMassive = [1, 4, 7, 'Max', [7, 2, 3] ];
+const cloneMassiveInMassive = clone(objMassiveInMassive);
+
+for (let i = 0, len = objMassiveInMassive.length; i < len; i++) {
+  if (objMassiveInMassive[i] ===  cloneMassiveInMassive[i])  {
+    // console.log(true);
+  }
 }
-object1 = object2;
-clone.key6 = 'Liul';
-object2.key5 = 'Super1'
-console.log(clone.key2)
+console.log(typeof '2')

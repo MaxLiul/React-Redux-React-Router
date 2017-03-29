@@ -1,9 +1,10 @@
 const clone = require('./clone');
 
-function objectConstructor() {
+const objUndefinedMassive = [ undefined ];
+const cloneUndefinedMassive = clone(objUndefinedMassive);
 
+if (objUndefinedMassive instanceof Array === cloneUndefinedMassive instanceof Array) {
+  if (objUndefinedMassive.length === cloneUndefinedMassive.length) {
+    console.log('trueUndefinedMassive');
+  }
 }
-const objFunction = new objectConstructor();
-const cloneFunction = clone(objFunction);
-
- console.log(cloneFunction instanceof objectConstructor);
