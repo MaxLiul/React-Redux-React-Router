@@ -16,14 +16,13 @@ function cloneDeep(obj) {
   }
 
  // Handle Object
-  if (obj instanceof Object) {
     copy = new obj.constructor();
     for (const attr in obj) {
       if (obj.hasOwnProperty(attr)) {
         copy[attr] = cloneDeep(obj[attr]);
-      }
+    }
     }
     return copy;
-  }
+
 }
 module.exports = cloneDeep;
