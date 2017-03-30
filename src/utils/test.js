@@ -1,3 +1,4 @@
+'use strict'
 const clone = require('./clone');
 // Проверить функцию в случае, если передается значение 'undefined'
 const objUndefined = undefined;
@@ -26,9 +27,9 @@ console.log(cloneStatement === objStatement);
 const objEmptyMassive = [];
 const cloneEmptyMassive = clone(objEmptyMassive);
 
-if (objEmptyMassive instanceof Array === cloneEmptyMassive instanceof Array) {
+if (cloneEmptyMassive instanceof Array) {
   if (objEmptyMassive.length === cloneEmptyMassive.length) {
-    return console.log('trueEmptyMassive');
+    console.log('trueEmptyMassive');
   }
 }
 
@@ -37,16 +38,16 @@ if (objEmptyMassive instanceof Array === cloneEmptyMassive instanceof Array) {
 const objUndefinedMassive = [ undefined ];
 const cloneUndefinedMassive = clone(objUndefinedMassive);
 
-if (objUndefinedMassive instanceof Array === cloneUndefinedMassive instanceof Array) {
+if (cloneUndefinedMassive instanceof Array) {
   if (objUndefinedMassive.length === cloneUndefinedMassive.length) {
     console.log('trueUndefinedMassive');
-  }
-}
+  } else console.log('FalseUnfinedMassive1')
+} else console.log('FalseUnfinedMassive2');
 // clone massive with numbers
 const objMassive = [1, 2, 7, 11, 3];
 const cloneMassive = clone(objMassive);
 
-if (objMassive instanceof Array === cloneMassive instanceof Array) {
+if (cloneMassive instanceof Array) {
   if (objMassive.length === cloneMassive.length) {
     for (let i = 0, k = 0, len = objMassive.length; i < len; i++) {
       if (objMassive[i] === cloneMassive[i]) {
@@ -93,7 +94,7 @@ function objectConstructor() {
 const objFunction = new objectConstructor();
 const cloneFunction = clone(objFunction);
 
-if (objFunction instanceof objectConstructor === cloneFunction instanceof objectConstructor) {
+if (cloneFunction instanceof objectConstructor) {
   return console.log('trueFunction');
 }
 

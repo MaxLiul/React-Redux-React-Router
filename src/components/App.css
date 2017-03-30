@@ -1,9 +1,40 @@
+.none {
+display: none !important;
+}
+
+body {
+background: rgb(0,255,0);
+font-family: sans-serif;
+}
+p {
+margin: 0 0 5px;
+}
+.article {
+background: #FFF;
+border: 10px solid rgb(255,255,0);
+width: 600px;
+margin: 0 0 5px;
+box-shadow: 2px 2px 5px -1px rgb(255,255,0);
+padding: 3px 5px;
+}
+.news__author {
+text-decoration: underline;
+color: rgb(255,0,0);
+}
+.news__count {
+margin: 10px 0 0 0;
+display: block;
+}
 .App {
   padding: 20px;
 }
 
 .App h1 {
   font-size: 26px;
+}
+
+.App h3 {
+  font-size: 55px;
 }
 
 .App input {
