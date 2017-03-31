@@ -1,15 +1,21 @@
 import React from 'react';
-import Article from 'components/Article.js'
+import Article from 'components/Article.js';
 class News extends React.Component {
+
+  static propTypes = {
+    news: React.PropTypes.array
+  };
+
   render() {
-    const data = this.props.data;
+    const news = this.props.news;
+
     let newsTemplate = {};
 
-    if (data.length > 0) {
-      newsTemplate = data.map(function(item, index) {
+    if (news.length > 0) {
+      newsTemplate = news.map((item, index) => {
         return (
           <div key={index}>
-            <Article data={item} />
+            <Article article = {item} />
           </div>
         );
       }
@@ -18,9 +24,9 @@ class News extends React.Component {
       newsTemplate = <p> К сожалению новостей нет</p>;
     }
     return (
-      <div className="news">
+      <div className='news'>
         {newsTemplate}
-        <strong className={data.length > 0 ? '':'none'}>Всего новостей: {data.length}</strong>
+        <strong className={news.length > 0 ? '' : 'none'}>Всего новостей: {news.length}</strong>
       </div>
     );
   }
