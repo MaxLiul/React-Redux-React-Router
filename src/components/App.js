@@ -2,6 +2,7 @@ import React from 'react';
 import  News from 'components/News.js';
 import  Comments from 'components/Comments.js';
 // import Article from 'components/Article.js';
+import TestInput from 'components/TestInput.js';
 import 'components/App.css';
 
 const myNews = [
@@ -27,6 +28,7 @@ class Component extends React.Component {
     return (
       <div>
         <h3> Новости </h3>
+        <TestInput/>
         <News news={myNews}/>
         <Comments/>
       </div>

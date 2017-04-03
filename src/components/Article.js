@@ -7,7 +7,6 @@ class Article extends React.Component {
       text: React.PropTypes.string.isRequired,
       bigText: React.PropTypes.string.isRequired
     })
-  //  visible: React.PropTypes.string.isRequired
   }
 
   state = {
@@ -15,7 +14,7 @@ class Article extends React.Component {
   };
 
   handleReadmoreClick(e) {
-    console.log(this);
+    console.log(this.state.visible);
     e.preventDefault();
     this.setState({ visible: true });
   }
@@ -33,7 +32,7 @@ class Article extends React.Component {
       <div className='article'>
         <p className='news__author'>{author}:</p>
         <p className='news__text'>{text}</p>
-        <a href = '#' onClick = {this.handleReadmoreClick}  className={
+        <a href = '#' onClick = {::this.handleReadmoreClick}  className={
           `news__readmore ${visible ? 'none' : '' }` // js
        }> Подробнее</a>
         <p className = {`news__big-text ${visible ? '' : 'none'}`}>{bigText}</p>
