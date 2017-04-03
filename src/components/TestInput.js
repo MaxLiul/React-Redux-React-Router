@@ -4,7 +4,7 @@ class TestInput extends React.Component {
 
 
   handleBtnClickHandler() {
-    console.log(ReactDOM.findDOMNode(this.myTestInput));
+    console.log(ReactDOM.findDOMNode(this.myTestInput).value);
   }
 
   render() {
