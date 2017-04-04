@@ -18,9 +18,8 @@ class Add extends React.Component {
     console.log(this.textName.value);
   }
 
-  onCheckRuleClick(e) {
-    ReactDOM.findDOMNode(this.buttonName).disabled = !e.target.checked;
-    return  console.log(`Max ${e.target.checked}`);
+  onCheckRuleClick() {
+    this.setState({ agreeNotChecked: !this.state.agreeNotChecked });
   }
 
   onAuthorChange(e) {
