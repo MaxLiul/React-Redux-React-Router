@@ -4,7 +4,6 @@ import  Comments from 'components/Comments.js';
 // import Article from 'components/Article.js';
 import Add from 'components/Add.js';
 import 'components/App.css';
-import ee from 'utils/EventEmitter.js';
 
 const myNews = [
   {
@@ -25,32 +24,12 @@ const myNews = [
 ];
 
 class Component extends React.Component {
-
-  state = {
-    news : myNews
-  }
-  componentDidMount() {
-    const self = this;
-
-    ee.addListener('News.add', (item) => {
-      const nextNews = item.concat(self.state.news);
-
-      self.setState({ news: nextNews });
-    });
-  }
-
-  componentWillUnmount() {
-    ee.removeListener('News.add');
-  }
-
-
   render() {
-    console.log('render');
     return (
-      <div className = 'app'>
+      <div>
         <h3> Новости </h3>
         <Add/>
-        <News news={this.state.news}/>
+        <News news={myNews}/>
         <Comments/>
       </div>
     );

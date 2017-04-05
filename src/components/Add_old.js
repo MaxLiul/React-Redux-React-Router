@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ee from 'utils/EventEmitter.js';
 class Add extends React.Component {
 
   state = {
@@ -14,8 +15,17 @@ class Add extends React.Component {
 
   handleonBtnClickHandler(e) {
     e.preventDefault();
-    console.log(this.authorName.value);
-    console.log(this.textName.value);
+    const author = this.authorName.value;
+
+    const text = this.textName.value;
+
+    const item = [ {
+      author: author,
+      text: text,
+      bigText: ''
+    }
+    ];
+    ee.emit('News.add', item)
   }
 
   onCheckRuleClick() {

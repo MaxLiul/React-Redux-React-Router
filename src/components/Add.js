@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ee from 'utils/EventEmitter.js';
 class Add extends React.Component {
 
   state = {
@@ -14,13 +15,26 @@ class Add extends React.Component {
 
   handleonBtnClickHandler(e) {
     e.preventDefault();
-    console.log(this.authorName.value);
-    console.log(this.textName.value);
+    const textE1 = this.textName;
+    const author = this.authorName.value;
+
+    const text = textE1.value;
+
+    const item = [ {
+      author,
+      text,
+      bigText: ''
+    }
+    ];
+
+    ee.emit('News.add', item);
+
+    textE1.value = '';
+    this.setState({ textIsEmpty: true });
   }
 
-  onCheckRuleClick(e) {
-    ReactDOM.findDOMNode(this.buttonName).disabled = !e.target.checked;
-    return  console.log(`Max ${e.target.checked}`);
+  onCheckRuleClick() {
+    this.setState({ agreeNotChecked: !this.state.agreeNotChecked });
   }
 
   onAuthorChange(e) {
