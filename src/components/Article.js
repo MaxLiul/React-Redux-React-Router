@@ -5,7 +5,8 @@ class Article extends React.Component {
     article: React.PropTypes.shape({
       author: React.PropTypes.string.isRequired,
       text: React.PropTypes.string.isRequired,
-      bigText: React.PropTypes.string.isRequired
+      bigText: React.PropTypes.string.isRequired,
+      newText: React.PropTypes.string.isRequired
     })
   }
 

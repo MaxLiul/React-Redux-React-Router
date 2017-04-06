@@ -1,6 +1,6 @@
 import React from 'react';
 import  News from 'components/News.js';
-import  Comments from 'components/Comments.js';
+// import  Comments from 'components/Comments.js';
 // import Article from 'components/Article.js';
 import Add from 'components/Add.js';
 import 'components/App.css';
@@ -51,7 +51,6 @@ class Component extends React.Component {
         <h3> Новости </h3>
         <Add/>
         <News news={this.state.news}/>
-        <Comments/>
       </div>
     );
   }

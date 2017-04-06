@@ -1,6 +1,7 @@
 import React from 'react';
 import Article from 'components/Article.js';
-class News extends React.Component {
+
+export class News extends React.Component {
 
   static propTypes = {
     news: React.PropTypes.array
@@ -31,5 +32,3 @@ class News extends React.Component {
     );
   }
 }
-
-export default News;

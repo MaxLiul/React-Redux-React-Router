@@ -20,12 +20,12 @@ class Add extends React.Component {
 
     const text = textE1.value;
 
-    const item = [ {
+    const item =  {
       author,
       text,
       bigText: ''
-    }
-    ];
+    };
+
 
     ee.emit('News.add', item);
 
