@@ -8,7 +8,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var publicPath         = 'http://localhost:8050/public/assets';
 var cssName            = process.env.NODE_ENV === 'production' ? 'styles-[hash].css' : 'styles.css';
 var jsName             = process.env.NODE_ENV === 'production' ? 'bundle-[hash].js' : 'bundle.js';
-
+var NpmInstallPlugin = require('npm-install-webpack-plugin');
 var plugins = [
   new webpack.DefinePlugin({
     'process.env': {
@@ -29,14 +29,15 @@ if (process.env.NODE_ENV === 'production') {
   );
   plugins.push(new webpack.optimize.DedupePlugin());
   plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+  plugins.push(new NpmInstallPlugin());
 }
 
 module.exports = {
-  entry: ['babel-polyfill', './src/client.js'],
+  entry: ['babel-polyfill', './src/index.js'],
   debug: process.env.NODE_ENV !== 'production',
   resolve: {
     root:               path.join(__dirname, 'src'),
-    modulesDirectories: ['node_modules'],
+    modulesDirectories: [ 'node_modules' ],
     extensions:         ['', '.js', '.jsx']
   },
   plugins,

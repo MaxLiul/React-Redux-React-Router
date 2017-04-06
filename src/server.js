@@ -27,7 +27,6 @@ function renderHTML(componentHTML) {
       <body>
         <div id="react-view">${componentHTML}</div>
         <script type="application/javascript" src="${assetUrl}/public/assets/bundle.js"></script>
-        <script src="https://raw.githubusercontent.com/mozilla/source-map/master/dist/source-map.min.js" defer></script>
       </body>
     </html>
   `;
