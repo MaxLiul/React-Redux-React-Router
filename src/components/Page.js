@@ -3,29 +3,35 @@ import React, { PropTypes, Component } from 'react';
 export default class Page extends Component {
 
   onYearBtnClick(e) {
-    this.props.setYear(+e.target.textContent);
+    this.props.getPhotos(+e.target.textContent);
   }
 
   render() {
-    const { year, photos } = this.props;
-  //  const { setYear } = this.props.pageActions;
+    const { year, photos, fetching } = this.props;
 
+    console.log(fetching);
     return (
-      <div>
+      <div className = 'ib page'>
         <p>
-          <button onClick={::this.onYearBtnClick}>2016</button>
-          <button onClick={::this.onYearBtnClick}>2015</button>
-          <button onClick={::this.onYearBtnClick}>2014</button>
+          <button className = 'btn' onClick={::this.onYearBtnClick}>2016</button> {' '}
+          <button className = 'btn' onClick={::this.onYearBtnClick}>2015</button> {' '}
+          <button className = 'btn' onClick={::this.onYearBtnClick}>2014</button>
         </p>
         <h3>{year} год</h3>
-        <p>У тебя {photos.length} фото.</p>
+        {
+          fetching ?
+            <p> Loading... </p>
+          :
+            <p>У тебя {photos.length} фото.</p>
+        }
       </div>
     );
   }
 }
+
 Page.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array.isRequired,
-  setYear: PropTypes.func.isRequired
-
+  fetching: PropTypes.func,
+  getPhotos: PropTypes.func
 };

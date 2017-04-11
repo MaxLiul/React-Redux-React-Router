@@ -12,21 +12,19 @@ class App extends Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
     page: React.PropTypes.object.isRequired,
-  //  setYear: React.PropTypes.object.isRequired,
     pageActions: React.PropTypes.object.isRequired
   }
 
   render() {
     const { user, page } = this.props;
-    const  { setYear }   = this.props.pageActions;
-
-    //    const { year, photos } = this.props.page;
-
+    const  { getPhotos }   = this.props.pageActions;
 
     return (
-      <div>
+      <div className = 'row'>
         <User name = {user.name}/>
-        <Page photos = {page.photos} year = {page.year} setYear = {setYear}/>
+        <Page photos = {page.photos} year = {page.year} getPhotos = {getPhotos}
+          fetching = {page.fetching}
+        />
       </div>
     );
   }

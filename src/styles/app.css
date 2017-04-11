@@ -24,7 +24,7 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-  line-height: 5;
+  line-height: 1;
 }
 ol, ul {
   list-style: none;
@@ -45,7 +45,7 @@ table {
 /*end reset*/
 
 h3 {
-  font-size: 22px;
+  font-size: 25px;
   margin: 10px 0 0;
 }
 .app {
@@ -75,7 +75,7 @@ h3 {
   text-transform: uppercase;
   vertical-align: middle;
   color: #fff;
-  background-color: #6383a8;
+  background-color: green;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
