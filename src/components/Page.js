@@ -26,6 +26,6 @@ export default class Page extends Component {
 Page.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array.isRequired,
-  setYear: PropTypes.function
+  setYear: PropTypes.func.isRequired
 
 };

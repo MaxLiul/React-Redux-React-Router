@@ -6,8 +6,9 @@ import Page from 'components/Page';
 import * as pageActions from 'actions/PageActions';
 // const pageActions = require('actions/PageActions');
 
-console.log(pageActions);
+
 class App extends Component {
+
   static propTypes = {
     user: React.PropTypes.object.isRequired,
     page: React.PropTypes.object.isRequired,
@@ -17,10 +18,9 @@ class App extends Component {
 
   render() {
     const { user, page } = this.props;
-    const { setYear }  = this.props.pageActions;
+    const  { setYear }   = this.props.pageActions;
 
-    console.log(this.props);
-//    const { year, photos } = this.props.page;
+    //    const { year, photos } = this.props.page;
 
 
     return (
@@ -33,13 +33,14 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+  const { user, page } = state;
+
   return {
 
-    user: state.user,
-    page: state.page
+    user, // user: state.user
+    page // page: state.user
   };
 }
-
 function mapDispatchToProps(dispatch) {
   return ({
     pageActions: bindActionCreators(pageActions, dispatch)

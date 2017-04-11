@@ -4,6 +4,10 @@ var webpack            = require('webpack');
 var path               = require('path');
 var ExtractTextPlugin  = require('extract-text-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var NpmInstallPlugin = require('npm-install-webpack-plugin')
+ var autoprefixer = require('autoprefixer');
+ var precss = require('precss');
+
 
 var publicPath         = 'http://localhost:8050/public/assets';
 var cssName            = process.env.NODE_ENV === 'production' ? 'styles-[hash].css' : 'styles.css';
@@ -33,7 +37,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: [
+    'webpack-hot-middleware/client',
+    'babel-polyfill',
+    './src/index.js'
+  ],
   debug: process.env.NODE_ENV !== 'production',
   resolve: {
     root:               path.join(__dirname, 'src'),
@@ -63,7 +71,10 @@ module.exports = {
       { test: /\.(woff|woff2|ttf|eot)/, loader: 'url-loader?limit=1' },
       { test: /\.jsx?$/, loader: process.env.NODE_ENV !== 'production' ? 'react-hot!babel!eslint-loader' : 'babel', exclude: [/node_modules/, /public/] },
       { test: /\.json$/, loader: 'json-loader' },
-    ]
+    ],
+    postcss: ()  => {
+      return [autoprefixer, precss];
+    }
   },
   devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : null,
   devServer: {
