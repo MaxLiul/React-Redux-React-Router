@@ -7,31 +7,36 @@ export default class Page extends Component {
   }
 
   render() {
-    const { year, photos, fetching } = this.props;
+    const { year, photos, fetching, error } = this.props;
+    const years = [2016, 2015, 2014, 2013, 2012, 2011, 2010];
 
-    console.log(fetching);
     return (
       <div className = 'ib page'>
         <p>
-          <button className = 'btn' onClick={::this.onYearBtnClick}>2016</button> {' '}
-          <button className = 'btn' onClick={::this.onYearBtnClick}>2015</button> {' '}
-          <button className = 'btn' onClick={::this.onYearBtnClick}>2014</button>
+          {years.map((item, index) => <button className='btn' key={index} onClick={::this.onYearBtnClick}>{item}</button>)}
         </p>
-        <h3>{year} год</h3>
+        <h3>{year} год [{photos.length}]</h3>
+        {error ? <p className='error'> Во время загрузки фото произошла ошибка</p> : ''
+  }
         {
           fetching ?
             <p> Loading... </p>
           :
-            <p>У тебя {photos.length} фото.</p>
+          photos.map((entry, index) =>
+            <div key={index} className='photo'>
+              <p><img src={entry.src} /></p>
+              <p>{entry.likes.count} ❤</p>
+            </div>
+           )
         }
       </div>
     );
   }
 }
-
 Page.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array.isRequired,
-  fetching: PropTypes.func,
-  getPhotos: PropTypes.func
+  getPhotos: PropTypes.func.isRequired,
+  error: PropTypes.string,
+  fetching: PropTypes.bool.isRequired
 };
