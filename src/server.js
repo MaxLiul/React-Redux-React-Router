@@ -26,7 +26,13 @@ function renderHTML(componentHTML) {
       </head>
       <body>
         <div id="root">${componentHTML}</div>
+        <script src="//vk.com/js/api/openapi.js"></script>
         <script type="application/javascript" src="${assetUrl}/public/assets/bundle.js"></script>
+        <script language="javascript">
+          VK.init({
+            apiId: 5087365
+          });
+          </script>
       </body>
     </html>
   `;
