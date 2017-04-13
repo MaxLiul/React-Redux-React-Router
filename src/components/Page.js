@@ -27,7 +27,7 @@ export default class Page extends Component {
               <p><img src={entry.src} /></p>
               <p>{entry.likes.count} ❤</p>
             </div>
-           )
+          )
         }
       </div>
     );

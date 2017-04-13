@@ -31,7 +31,7 @@ function renderHTML(componentHTML) {
         <script type="application/javascript" src="${assetUrl}/public/assets/bundle.js"></script>
         <script language="javascript">
           VK.init({
-            apiId: 5087365
+            apiId: 5980415
           });
           </script>
       </body>

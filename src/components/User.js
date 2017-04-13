@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+
 export default class User extends Component {
 
   render() {
@@ -14,7 +15,7 @@ export default class User extends Component {
     return (
       <div className='ib user'>
         {template}
-        {error ? <p className='error'> {error}. <br /> Попробуйте еще раз.</p> : ''}
+        {error ? <p className ='error'> {error}. <br /> Попробуйте еще раз.</p> : ''}
       </div>
 
     );

@@ -22,12 +22,15 @@ function makeYearPhotos(photos, selectedYear) {
 }
 
 function getMorePhotos(offset, count, year, dispatch) {
+//  console.log(offset);
   VK.Api.call('photos.getAll', { count, offset, extended:1 }, (r) => { // eslint-disable-line no-undef
+    console.log(arguments);
     try {
       if (offset <= r.response[0] - count) {
-        offset += 200;
+        const newOffset = offset + count;
+
         photosArr = photosArr.concat(r.response);
-        getMorePhotos(offset, count, year, dispatch);
+        getMorePhotos(newOffset, count, year, dispatch);
       } else {
         const photos = makeYearPhotos(photosArr, year);
 

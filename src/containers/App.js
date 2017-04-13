@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import User from 'components/User';
 import Page from 'components/Page';
 import * as pageActions from 'actions/PageActions';
-import * as userActions from '../actions/UserActions';
+import * as userActions from 'actions/UserActions';
 
 
 class App extends Component {

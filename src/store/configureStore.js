@@ -6,6 +6,9 @@ import  thunk  from 'redux-thunk';
 console.log(thunk);
 export default function configureStore(initialState) {
   const logger = createLogger();
+
+//  console.log(createLogger);
+//  console.log(`Max ${logger}`);
   const store = createStore(
     rootReducer,
     initialState,

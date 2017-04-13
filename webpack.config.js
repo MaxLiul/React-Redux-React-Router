@@ -70,7 +70,7 @@ module.exports = {
       { test: /\.svg/, loader: 'url-loader?limit=26000&mimetype=image/svg+xml' },
       { test: /\.(woff|woff2|ttf|eot)/, loader: 'url-loader?limit=1' },
       { test: /\.jsx?$/, loader: process.env.NODE_ENV !== 'production' ? 'react-hot!babel!eslint-loader' : 'babel', exclude: [/node_modules/, /public/] },
-      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.json$/, loader: 'json-loader' }
     ],
     postcss: ()  => {
       return [autoprefixer, precss];
