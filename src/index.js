@@ -1,19 +1,20 @@
 // import 'babel-polyfill';
+import 'babel-polyfill';
 import React from 'react';
-import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import App from 'containers/App';
-import 'styles/app.css';
-import configureStore from 'store/configureStore';
-
-const store = configureStore();
+import Admin from 'components/Admin';
+import Genre from 'components/Genre';
+import Home from 'components/Home';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 render(
-  <Provider store={store}>
-    <div className='app'> {/* обернули все в .app */}
-      <App />
-    </div>
-  </Provider>,
-
-document.getElementById('root'),
+  <Router history={browserHistory}>
+    <Route path='/' component={App}>
+      <IndexRoute component={Home} />
+      <Route path='admin' component={Admin} />
+      <Route path='genre' component={Genre} />
+    </Route>
+  </Router>,
+  document.getElementById('root')
 );

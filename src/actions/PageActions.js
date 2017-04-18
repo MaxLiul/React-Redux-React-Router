@@ -17,14 +17,16 @@ function makeYearPhotos(photos, selectedYear) {
       yearPhotos.push(item);
     }
   });
+
   yearPhotos.sort((a, b) => b.likes.count - a.likes.count);
   return yearPhotos;
 }
+// console.log(`Max ${makeYearPhotos}`);
 
 function getMorePhotos(offset, count, year, dispatch) {
-//  console.log(offset);
+  console.log(offset);
   VK.Api.call('photos.getAll', { count, offset, extended:1 }, (r) => { // eslint-disable-line no-undef
-    console.log(arguments);
+    console.log('count');
     try {
       if (offset <= r.response[0] - count) {
         const newOffset = offset + count;
@@ -65,7 +67,7 @@ export function getPhotos(year) {
         payload: photos
       });
     } else {
-      getMorePhotos(0, 200, year, dispatch);
+      getMorePhotos(0, 2, year, dispatch);
     }
   };
 }
