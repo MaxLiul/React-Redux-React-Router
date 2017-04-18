@@ -48,9 +48,9 @@ h3 {
   font-size: 25px;
   margin: 10px 0 0;
 }
-.app {
-  margin: 10px;
-  font: 20px sans-serif;
+.container {
+  width: 25px;
+  font: 40px sans-serif;
 }
 .ib {
   display: inline-block;

@@ -1,4 +1,5 @@
 import express  from 'express';
+
 // import React    from 'react';
 // import ReactDom from 'react-dom/server';
 // import App      from 'components/App';
@@ -27,8 +28,9 @@ function renderHTML(componentHTML) {
       </head>
       <body>
         <div id="root">${componentHTML}</div>
-        <script src="//vk.com/js/api/openapi.js"></script>
         <script type="application/javascript" src="${assetUrl}/public/assets/bundle.js"></script>
+        <script language="javascript">
+        </script>
       </body>
     </html>
   `;

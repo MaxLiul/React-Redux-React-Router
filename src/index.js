@@ -1,20 +1,19 @@
-// import 'babel-polyfill';
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import App from 'containers/App';
-import Admin from 'components/Admin';
-import Genre from 'components/Genre';
-import Home from 'components/Home';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import App from './containers/App';
+import Home from './components/Home';
+import Admin from './components/Admin';
+import Genre from './components/Genre';
+import {  Route,  BrowserRouter } from 'react-router-dom';
 
 render(
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={Home} />
-      <Route path='admin' component={Admin} />
-      <Route path='genre' component={Genre} />
-    </Route>
-  </Router>,
-  document.getElementById('root')
+  <BrowserRouter>
+    <App>
+      <Route exact path='/' component={Home} />
+      <Route path='/admin' component={Admin} />
+      <Route path='/genre' component={Genre} />
+    </App>
+  </BrowserRouter>,
+document.getElementById('root')
 );
