@@ -6,6 +6,7 @@ import Home from 'components/Home';
 import Admin from 'components/Admin';
 import Genre from 'components/Genre';
 import List from 'components/List';
+import Release from './components/Release';
 import {  Route,  BrowserRouter } from 'react-router-dom';
 
 render(
@@ -13,9 +14,11 @@ render(
     <App>
       <Route exact path='/' component={Home} />
       <Route path='/admin' component={Admin} />
-      <Route path='/genre' component={Genre} />
-      <Route path='/list' component={List} />
+      <Route path='/:genre' component={Genre} />
+      <Route path='/:genre/:release' component={Release} />
+      <Route  path='/list' component={List} />
     </App>
   </BrowserRouter>,
 document.getElementById('root')
 );
+console.log(Genre);
