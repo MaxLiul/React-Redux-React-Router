@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import  { Router } from 'react-router-dom';
-console.log(`lala ${Router.props}`);
+
 export default class Home extends Component {
 
   static propTypes = {

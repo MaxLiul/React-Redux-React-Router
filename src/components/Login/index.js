@@ -9,9 +9,11 @@ export default class Login extends Component {
   }
   render() {
     return (
+
+
       <div className='row'>
         <div className='col-md-12'>Пожалуйста, введите логин:</div>
-        <form className='col-md-4' onSubmit={::this.handleSubmit}>
+        <form className='col-md-4' onSubmit={this.handleSubmit}>
           <input type='text' placeholder='login'/>
           <button type='submit'>Войти</button>
         </form>

@@ -10,12 +10,11 @@ import Login from 'components/Login';
 
 import {  Route,  BrowserRouter } from 'react-router-dom';
 
-function checkLogin() {
+function checkLogin(nextState, replace) {
   const login = window.localStorage.getItem('rr_login');
 
-  console.log(window.localStorage);
-  if (login === 'admin') {
-    console.log('пропусти');
+  if (login !== 'admin') {
+    replace('/');
   }
 }
 export const routes = (
