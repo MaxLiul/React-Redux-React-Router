@@ -7,7 +7,8 @@ export default class Release extends Component {
     match: React.PropTypes.object
   }
   render() {
-    const releaseName = this.props.match.params.release.replace(/-/g, ' ');
+    const releaseName = this.props.match.params.release;
+
 
     return (
       <div className='col-md-12'>
