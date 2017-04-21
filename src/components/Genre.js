@@ -9,6 +9,7 @@ export default class Genre extends Component {
     children: React.PropTypes.array
   }
   render() {
+    console.log(`childrenGenre ${this.props.children}`);
     let template;
 
 

@@ -9,8 +9,10 @@ import Release from 'components/Release';
 import Login from 'components/Login';
 
 import {  Route,  BrowserRouter } from 'react-router-dom';
-
+console.log(`localStorageRoutes ${window.localStorage.getItem('rr_login')}`);
 function checkLogin(nextState, replace) {
+  alert('1');
+  console.log(arguments);
   const login = window.localStorage.getItem('rr_login');
 
   if (login !== 'admin') {
@@ -23,7 +25,7 @@ export const routes = (
       <Route exact path='/' component={Home} />
       <Route path='/admin' component={Admin} onEnter={checkLogin} />
       <Route path='/login' component={Login} />
-      <Route path='/:genre' component={Genre} />
+      <Route path='/genre' component={Genre} />
       <Route path='/:genre/:release' component={Release} />
       <Route  path='/list' component={List} />
     </App>
