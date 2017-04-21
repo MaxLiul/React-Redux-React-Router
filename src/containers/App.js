@@ -5,6 +5,7 @@ export default class App extends Component {
   static propTypes = {
     children: React.PropTypes.array.isRequired
   }
+
   render() {
     return (
       <div className='container'>
