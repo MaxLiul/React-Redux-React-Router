@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 console.log(`localStorageIndexUp ${window.localStorage.getItem('rr_login')}`);
+
 export default class Login extends Component {
+  static propTypes = {
+    history: React.PropTypes.object
+  }
+
   handleSubmit(e) {
     console.log(`localStorageIndexDown ${window.localStorage.getItem('rr_login')}`);
     e.preventDefault();
-    const value = e.target.elements[0].value;
+    const login = e.target.elements[0].value;
 
-    window.localStorage.setItem('rr_login', value);
+    window.localStorage.setItem('rr_login', login);
+    if (login === 'admin') {
+      this.props.history.push('/admin');
+    } else {
+      this.props.history.push('/');
+    }
   }
   render() {
     return (
