@@ -9,28 +9,19 @@ import Release from 'components/Release';
 import Login from 'components/Login';
 import NotFound from 'components/NotFound';
 
-import {  Route,  BrowserRouter, Switch } from 'react-router-dom';
+import {  Route,  Switch } from 'react-router-dom';
 console.log(`localStorageRoutes ${window.localStorage.getItem('rr_login')}`);
-function checkLogin(nextState, replace) {
-  console.log(arguments);
-  const login = window.localStorage.getItem('rr_login');
 
-  if (login !== 'admin') {
-    replace('/');
-  }
-}
 export const routes = (
-  <BrowserRouter>
+  <App>
     <Switch>
-      <App>
-        <Route exact path='/' component={Home} />
-        <Route path='/admin' component={Admin} onEnter={checkLogin} />
-        <Route path='/login' component={Login} />
-        <Route path='/genre' component={Genre} />
-        <Route path='/:genre/:release' component={Release} />
-        <Route  path='/list' component={List} />
-        <Route component = {NotFound}/>
-      </App>
+      <Route exact path='/' component={Home} />
+      <Route path='/admin' component={Admin} />
+      <Route path='/login' component={Login} />
+      <Route path='/genre' component = {Genre} />
+      <Route path='/:genre/:release' component={Release} />
+      <Route  path='/list' component={List} />
+      <Route component = {NotFound}/>
     </Switch>
-  </BrowserRouter>
+  </App>
 );

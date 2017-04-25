@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import NavLink from 'components/NavLink';
 
 export default class App extends Component {
+
   static propTypes = {
     children: React.PropTypes.array.isRequired
   }
 
   render() {
-    console.log(`childrenApp ${this.props.children}`);
     return (
       <div className='container'>
         <ul className = 'nav nav-pills'>

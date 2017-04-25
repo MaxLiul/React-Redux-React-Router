@@ -9,9 +9,9 @@ export default class Genre extends Component {
     children: React.PropTypes.array
   }
   render() {
-    console.log(`childrenGenre ${this.props.children}`);
+    console.log(`GenreChild ${this.props.children}`);
+    console.log(`GenreParams ${this.props.match.params.genre}`);
     let template;
-
 
     if (this.props.match.params.release) {
       template = (

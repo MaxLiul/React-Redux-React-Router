@@ -9,7 +9,6 @@ export default class Release extends Component {
   render() {
     const releaseName = this.props.match.params.release;
 
-
     return (
       <div className='col-md-12'>
         {releaseName}
