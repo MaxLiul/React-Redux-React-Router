@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavLink from 'components/NavLink';
-
+import 'styles/app.css';
 export default class App extends Component {
 
   static propTypes = {

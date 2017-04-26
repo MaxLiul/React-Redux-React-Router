@@ -7,12 +7,12 @@ export default class Release extends Component {
     match: React.PropTypes.object
   }
   render() {
-    const releaseName = this.props.match.params.release;
+  //  const releaseName = this.props.match.params.release;
 
     console.log(`Release  ${this.props.match.params.release}`);
     return (
       <div className='col-md-12'>
-        {releaseName}
+        777777
       </div>
     );
   }

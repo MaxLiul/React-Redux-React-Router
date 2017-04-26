@@ -56,6 +56,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.scss$/,
+        loader: 'sass-loader'
+      },
+      {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
       },

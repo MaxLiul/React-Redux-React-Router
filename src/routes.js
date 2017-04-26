@@ -17,8 +17,8 @@ export const routes = (
       <Route exact path='/' component={Home} />
       <Route path='/admin' component={Admin} />
       <Route path='/login' component={Login} />
-      <Route path='/genre' component = {Genre} />
-      <Route path='/genre/:release' component={Release} />
+      <Route path='/genre/:genre' component = {Genre} />
+      <Route path='/genre/:genre/:release' component={Release} />
       <Route  path='/list' component={List} />
       <Route component = {NotFound}/>
     </Switch>
