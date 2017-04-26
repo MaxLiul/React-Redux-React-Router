@@ -9,8 +9,7 @@ import Release from 'components/Release';
 import Login from 'components/Login';
 import NotFound from 'components/NotFound';
 
-import {  Route,  Switch } from 'react-router-dom';
-console.log(`localStorageRoutes ${window.localStorage.getItem('rr_login')}`);
+import { Route,  Switch } from 'react-router-dom';
 
 export const routes = (
   <App>
@@ -19,7 +18,7 @@ export const routes = (
       <Route path='/admin' component={Admin} />
       <Route path='/login' component={Login} />
       <Route path='/genre' component = {Genre} />
-      <Route path='/:genre/:release' component={Release} />
+      <Route path='/genre/:release' component={Release} />
       <Route  path='/list' component={List} />
       <Route component = {NotFound}/>
     </Switch>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RouteWithSubRoutes from 'RouteWithSubRoutes';
+console.log(`GenreSubRotes ${RouteWithSubRoutes}`);
 
 export default class Genre extends Component {
 
@@ -7,10 +9,8 @@ export default class Genre extends Component {
     genre: React.PropTypes.object,
     match: React.PropTypes.object,
     children: React.PropTypes.array
-  }
+  };
   render() {
-    console.log(`GenreChild ${this.props.children}`);
-    console.log(`GenreParams ${this.props.match.params.genre}`);
     let template;
 
     if (this.props.match.params.release) {

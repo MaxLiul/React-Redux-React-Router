@@ -4,7 +4,7 @@ import NavLink from 'components/NavLink';
 export default class App extends Component {
 
   static propTypes = {
-    children: React.PropTypes.array.isRequired
+    children: React.PropTypes.object
   }
 
   render() {

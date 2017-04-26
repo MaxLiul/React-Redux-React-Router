@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class List extends Component {
-  static propTypes = {
-    params: React.PropTypes.object,
-    genre: React.PropTypes.object,
-    match: React.PropTypes.object
-  }
+
   render() {
     return (
       <div>
