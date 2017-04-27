@@ -5,10 +5,11 @@ import * as UserActions from 'actions/UserActions';
 export class LoginPage extends Component {
 
   propTypes = {
-    actions: React.propTypes.object
+    actions: React.propTypes.object.isRequired
   };
 
   handleSubmit(e) {
+    console.log(this.props.actions);
     e.preventDefault();
     this.props.actions.login({ name: e.target.elements[0].value });
   }

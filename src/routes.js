@@ -11,7 +11,7 @@ import NotFound from 'components/NotFound';
 
 import { Route,  Switch } from 'react-router-dom';
 
-export const routes = (
+export const Routes = (
   <App>
     <Switch>
       <Route exact path='/' component={Home} />
