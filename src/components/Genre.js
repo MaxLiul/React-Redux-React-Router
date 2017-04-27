@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import RouteWithSubRoutes from 'RouteWithSubRoutes';
-console.log(`GenreSubRotes ${RouteWithSubRoutes}`);
 
 export default class Genre extends Component {
 
