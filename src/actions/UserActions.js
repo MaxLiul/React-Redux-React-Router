@@ -6,8 +6,19 @@ LOGIN_SUCCESS,
 LOGOUT_SUCCESS
 } from 'constants/User';
 export function login(payload) {
-  return {
-    type: LOGIN_REQUEST
+  return  (dispatch) => {
+    dispatch({
+      type: LOGIN_REQUEST
+    });
+    setTimeout(() => {
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: {
+          name: payload.name,
+          isAuthenyicated:true
+        }
+      });
+    }, 2000);
   };
 }
 

@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from 'actions/UserActions';
-export class LoginPage extends Component {
+console.log(UserActions);
 
-  propTypes = {
-    actions: React.propTypes.object.isRequired
+class LoginPage extends Component {
+
+
+  static propTypes = {
+  //  actions: React.propTypes.object.isRequire
   };
 
   handleSubmit(e) {
-    console.log(this.props.actions);
     e.preventDefault();
-    this.props.actions.login({ name: e.target.elements[0].value });
+     // this.props.actions.login({ name: e.target.elements[0].value });
   }
   render() {
     return (
@@ -32,6 +34,7 @@ function mapStateToProps() {
 }
 
 function mapDispatchToProps(dispatch) {
+
   return {
     actions: bindActionCreators(UserActions, dispatch)
   };

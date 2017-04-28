@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-console.log(`localStorageIndexUp ${window.localStorage.getItem('rr_login')}`);
-
 export default class Login extends Component {
   static propTypes = {
     history: React.PropTypes.object
