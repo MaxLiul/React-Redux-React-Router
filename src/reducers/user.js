@@ -14,7 +14,7 @@ export default function userstate(state = initialState, action) {
     case LOGIN_SUCCESS:
 
       return {
-        ...state, name: action.payload.name, isAuthenyicated: action.payload.isAuthenyicated
+        ...state, name: action.payload.name, isAuthenticated: action.payload.isAuthenticated
       };
 
     case LOGIN_FAIL:

@@ -11,7 +11,6 @@ export default function configureStore() {
       applyMiddleware(redirect)
     )(createStore)(rootReducer);
 
-
   if (module.hot) {
     module.hot.accept('reducers', () => {
       const nextRootReducer = require('reducers');

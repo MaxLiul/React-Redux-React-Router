@@ -19,7 +19,7 @@ export function login(payload) {
         type: LOGIN_SUCCESS,
         payload: {
           name: payload.name,
-          isAuthenyicated:true
+          isAuthenticated:true
         }
       });
       dispatch({

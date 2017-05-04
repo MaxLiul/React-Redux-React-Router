@@ -9,15 +9,16 @@ import Release from 'components/Release';
 import LoginPage from 'containers/LoginPage';
 import NotFound from 'components/NotFound';
 import  browserHistory from 'history/history';
+import requireAuthentication from 'containers/AuthenticatedComponent';
 import { Route,  Switch, Router } from 'react-router-dom';
 
-console.log(browserHistory);
+// console.log(requireAuthentication(Admin));
 export const routes = (
   <Router history = {browserHistory}>
     <App>
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/admin' component={Admin} />
+        <Route path='/admin' component={requireAuthentication(Admin)} />
         <Route path='/login' component={LoginPage} />
         <Route path='/genre/:genre' component = {Genre} />
         <Route path='/genre/:genre/:release' component={Release} />
