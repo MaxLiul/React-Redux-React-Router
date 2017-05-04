@@ -5,6 +5,10 @@ LOGIN_FAIL,
 LOGIN_SUCCESS,
 LOGOUT_SUCCESS
 } from 'constants/User';
+import {
+ROUTING
+} from 'constants/Routing';
+
 export function login(payload) {
   return  (dispatch) => {
     dispatch({
@@ -16,6 +20,13 @@ export function login(payload) {
         payload: {
           name: payload.name,
           isAuthenyicated:true
+        }
+      });
+      dispatch({
+        type: ROUTING,
+        paload: {
+          method: 'push',
+          nextUrl: '/admin'
         }
       });
     }, 2000);

@@ -5,7 +5,6 @@ export default class Login extends Component {
   }
 
   handleSubmit(e) {
-    console.log(`localStorageIndexDown ${window.localStorage.getItem('rr_login')}`);
     e.preventDefault();
     const login = e.target.elements[0].value;
 
