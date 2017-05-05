@@ -24,8 +24,7 @@ export function login(payload) {
       });
       dispatch({
         type: ROUTING,
-        paload: {
-          method: 'push',
+        payload: {
           nextUrl: '/admin'
         }
       });

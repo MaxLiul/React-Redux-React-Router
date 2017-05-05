@@ -8,7 +8,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('Max');
     return (
       <div className='container'>
         <ul className = 'nav nav-pills'>
