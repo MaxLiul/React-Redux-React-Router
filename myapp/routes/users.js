@@ -21,4 +21,5 @@ router.get('/users', function (req, res, next) {
     res.j(users);
   });
 });
+
 module.exports = router;

@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var app = express();
 var mongodb  = require('./models/mongodb');
 const db = require('./models/db');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -42,6 +43,15 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.listen(8000, function () {
+  console.log('Example app listening on port 8000!')
 });
 
 module.exports = app;

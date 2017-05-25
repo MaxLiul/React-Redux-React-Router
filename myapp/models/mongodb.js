@@ -20,5 +20,5 @@ exports.Document = function (db) {
   return db.model('Document');
 };
 
-//sudo service mongod start
+// sudo service mongod start
 // Robomongo

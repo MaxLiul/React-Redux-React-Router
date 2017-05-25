@@ -41,12 +41,28 @@ db.User = sequelize.define('user', {
 });
 
   // force: true will drop the table if it already exists
-  User.sync({force: true}).then(() => {
+db.User.sync({ force: true })
+.then(() => {
   //  Table created;
-    return User.create({
-      firstName: 'John',
-      lastName: 'Hancock'
-    });
+  return db.User.bulkCreate([ {
+    firstName: 'Max',
+    lastName: 'Liul'
+  },
+  {
+    firstName: 'Maxim',
+    lastName: 'Liul'
+  },
+  {
+    firstName: 'Maks',
+    lastName: 'Liul'
+  } ])
+  .then(() => {
+    return db.User.findOne({ where: { lastName: 'Liul' } })
+      .then((person) =>
+         console.log(person.firstName)
+
+);
   });
+});
 
 module.exports = db;
