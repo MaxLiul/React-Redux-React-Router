@@ -55,14 +55,23 @@ db.User.sync({ force: true })
   {
     firstName: 'Maks',
     lastName: 'Liul'
-  } ])
+  } ]);
+})
   .then(() => {
-    return db.User.findOne({ where: { lastName: 'Liul' } })
-      .then((person) =>
-         console.log(person.firstName)
+    return db.User.findAll({ where: { lastName: 'Liul' } });
+  })
+      .then((persons) => {
+        const massiv = [];
 
-);
-  });
-});
+        for (let i = 0; i < persons.length; i++) {
+          massiv.push(persons[i].firstName);
+        }
+        console.log(massiv);
+      //   () => console.log('Error');
+      });
 
 module.exports = db;
+
+ // Promise1 = new Promise;
+// Promise1().then().then().then()
+// Promise1().then( .then(.then(.then()))).
