@@ -58,12 +58,11 @@ db.User.sync({ force: true })
   } ]);
 }).
   then(() => {
-    return  db.User.findOne({ where: { firstName: 'Maxim' } });
-  }).
-     then((user) => {
-       user.firstName = 'MaxMax';
-       return  user.save();
-     });
+    return  db.User.findOrCreate({ where: {
+      firstName: 'Alex',  lastName: 'Pushkin'
+    } });
+  });
+
 
 module.exports = db;
 
