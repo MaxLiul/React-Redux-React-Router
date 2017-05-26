@@ -68,6 +68,8 @@ db.User.sync({ force: true })
         }
         console.log(massiv);
       //   () => console.log('Error');
+      }).then(() => {
+        return db.User.destroy({ where: { firstName: 'Maxim' } });
       });
 
 module.exports = db;
