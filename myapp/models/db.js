@@ -56,21 +56,14 @@ db.User.sync({ force: true })
     firstName: 'Maks',
     lastName: 'Liul'
   } ]);
-})
-  .then(() => {
-    return db.User.findAll({ where: { lastName: 'Liul' } });
-  })
-      .then((persons) => {
-        const massiv = [];
-
-        for (let i = 0; i < persons.length; i++) {
-          massiv.push(persons[i].firstName);
-        }
-        console.log(massiv);
-      //   () => console.log('Error');
-      }).then(() => {
-        return db.User.destroy({ where: { firstName: 'Maxim' } });
-      });
+}).
+  then(() => {
+    return  db.User.findOne({ where: { firstName: 'Maxim' } });
+  }).
+     then((user) => {
+       user.firstName = 'MaxMax';
+       return  user.save();
+     });
 
 module.exports = db;
 
