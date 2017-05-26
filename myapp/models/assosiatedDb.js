@@ -39,6 +39,12 @@ db.User = sequelize.define('user', {
     type: Sequelize.STRING
   }
 });
+db.Job = sequelize.define('job', {
+  possition: {
+    type: Sequelize.STRING
+  }
+});
+db.User.belongsTo(db.Job);
 
   // force: true will drop the table if it already exists
 db.User.sync({ force: true })
@@ -59,12 +65,21 @@ db.User.sync({ force: true })
 }).
   then(() => {
     return  db.User.findOrCreate({ where: {
-      firstName: 'Alex',  lastName: 'Pushkin'
+      firstName: 'Nikolo',  lastName: 'Tesla'
     } });
   });
-db.User.findOrCreate({ where: {
-  firstName: 'William',  lastName: 'Shakespeare'
-} });
+
+db.Job.sync({ force: true })
+  .then(() => {
+    //  Table created;
+    return db.Job.bulkCreate([ {
+      possition: 'Programmer'
+    },
+    {
+      possition: 'Programmer'
+    } ]);
+  });
+
 
 module.exports = db;
 
