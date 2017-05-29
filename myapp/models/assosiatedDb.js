@@ -51,6 +51,9 @@ db.User.belongsTo(db.Job);
 
 db.Job.sync({ force: true }).
 then(() => {
+  return  db.User.sync({ force: true });
+}).
+then(() => {
   return db.Job.create({
     possition: 'Programmer1',
     salary: 50000
@@ -68,19 +71,33 @@ then(() => {
     salary: 1000000
   });
 }).
-then(() => {
-  return db.User.create({
-    firstName: 'John',
-    lastName: 'Hancock'
-  });
-});
-/* then(() => {
+  then((data) => {
+  //  console.log(data);
+    return db.User.create({
+      firstName: 'John',
+      lastName: 'Hancock',
+      jobId: 3
+      // job: data
+    });
+  }).
+then((data) => {
+//  console.log(data);
   return db.User.findOrCreate({ where: {
     firstName: 'Alex',
     lastName: 'Pushkin'
   } });
 }).
 then(() => {
+  return  db.User.findAll({
+    include: [ {
+      model: db.Job
+    } ]
+  });
+}).
+then((data) => {
+  console.log(data);
+});
+/* then(() => {
   return db.User.findOrCreate({ where: {
     firstName: 'Sidor',
     lastName: 'Ivanov'
