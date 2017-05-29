@@ -42,6 +42,9 @@ db.User = sequelize.define('user', {
 db.Job = sequelize.define('job', {
   possition: {
     type: Sequelize.STRING
+  },
+  salary: {
+    type: Sequelize.INTEGER
   }
 });
 db.User.belongsTo(db.Job);
@@ -49,27 +52,29 @@ db.User.belongsTo(db.Job);
 db.Job.sync({ force: true }).
 then(() => {
   return db.Job.create({
-    possition: 'Programmer1'
+    possition: 'Programmer1',
+    salary: 50000
   });
 }).
 then(() => {
   return db.Job.create({
-    possition: 'Programmer2'
+    possition: 'Programmer2',
+    salary: 100000
   });
 }).
 then(() => {
-  return db.Job.findOrCreate({ where: {
-    possition: 'Programmer3 '
-  } });
+  return db.Job.create({
+    possition: 'Programmer3 ',
+    salary: 1000000
+  });
 }).
 then(() => {
-  //  Table created;
   return db.User.create({
     firstName: 'John',
     lastName: 'Hancock'
   });
-}).
-then(() => {
+});
+/* then(() => {
   return db.User.findOrCreate({ where: {
     firstName: 'Alex',
     lastName: 'Pushkin'
@@ -80,7 +85,7 @@ then(() => {
     firstName: 'Sidor',
     lastName: 'Ivanov'
   } });
-});
+});*/
 
 module.exports = db;
 
